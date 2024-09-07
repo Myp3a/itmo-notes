@@ -13,5 +13,5 @@ jobs:
         key: ${{ secrets.PRIVATE_KEY }}
         port: ${{ secrets.PORT }}
         script: |
-          cd /srv/itmonotes/notes
+          cd /srv/itmonotes/perlite/notes
           git pull
