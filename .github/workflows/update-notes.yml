@@ -1,0 +1,17 @@
+name: Remote SSH
+on: [push]
+jobs:
+  build:
+    name: ssh pull
+    runs-on: ubuntu-latest
+    steps:
+    - name: pull repo
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.PRIVATE_KEY }}
+        port: ${{ secrets.PORT }}
+        script: |
+          cd /srv/itmonotes/notes
+          git pull
